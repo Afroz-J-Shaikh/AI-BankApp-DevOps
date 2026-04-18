@@ -92,3 +92,6 @@ spec:
       cookie:
         name: BANKAPP_AFFINITY
         ttl: 3600s
+  timeout:
+    http:
+      requestTimeout: 120s
