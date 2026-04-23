@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: {{ include "bankapp.fullname" . }}-test
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "bankapp.labels" . | nindent 4 }}
   annotations:
@@ -12,4 +12,4 @@ spec:
     - name: test
       image: busybox:1.36
       command: ['sh', '-c', 'wget -qO- http://{{ include "bankapp.fullname" . }}-service:8080/actuator/health']
-      restartPolicy: Never
+  restartPolicy: Never
