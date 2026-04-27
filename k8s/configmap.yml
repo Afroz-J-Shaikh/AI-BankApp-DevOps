@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: bankapp-config
   namespace: bankapp
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 data:
   MYSQL_DRIFT: "DRIFT"
   MYSQL_HOST: mysql-service
