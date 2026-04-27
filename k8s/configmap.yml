@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 data:
-  MYSQL_DRIFT: "DRIFT"
+  #MYSQL_DRIFT: "DRIFT"
   MYSQL_HOST: mysql-service
   MYSQL_PORT: "3306"
   MYSQL_DATABASE: bankappdb
