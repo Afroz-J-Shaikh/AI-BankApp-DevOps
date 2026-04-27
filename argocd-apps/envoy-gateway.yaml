@@ -13,7 +13,7 @@ spec:
     targetRevision: "v1.4.*"
   destination:
     server: https://kubernetes.default.svc
-    namespace: envoy-gateway-system
+    namespace: envoy-gateway-system-argocd
   syncPolicy:
     automated:
       prune: true
