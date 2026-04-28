@@ -17,8 +17,7 @@ metadata:
   namespace: bankapp
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  #annotations:
-    #cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   gatewayClassName: envoy-gateway
   listeners:
@@ -32,19 +31,19 @@ spec:
         namespaces:
           from: All
     # HTTPS — TLS terminated at Envoy Gateway using cert-manager certificate
-    #- name: https
-    #  protocol: HTTPS
-    #  port: 443
-      #hostname: 54.185.230.23.nip.io
-    #  tls:
-    #  mode: Terminate
-    #  certificateRefs:
-    #    - group: ""
-    #      kind: Secret
-    #      name: bankapp-tls
-    #  allowedRoutes:
-    #  namespaces:
-    #    from: Same
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: 52.27.57.250.nip.io
+      tls:
+      mode: Terminate
+      certificateRefs:
+        - group: ""
+          kind: Secret
+          name: bankapp-tls
+      allowedRoutes:
+        namespaces:
+          from: Same
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -54,13 +53,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
-  #hostnames:
-  #- 54.185.230.23.nip.io
+  hostnames:
+    - 52.27.57.250.nip.io
   parentRefs:
-    #- group: gateway.networking.k8s.io
-    #  kind: Gateway
-    #  name: bankapp-gateway
-    #  sectionName: https
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: bankapp-gateway
+      sectionName: https
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: bankapp-gateway
