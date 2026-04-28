@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: oci://ghcr.io/jetstack/charts
+    repoURL: https://charts.jetstack.io
     chart: cert-manager
     targetRevision: v1.14.4   # pick the version you want
     helm:
