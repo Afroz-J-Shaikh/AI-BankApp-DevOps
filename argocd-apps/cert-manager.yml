@@ -19,6 +19,11 @@ spec:
         controller:
           extraArgs:
             - --enable-gateway-api=true
+        rbac:
+          extraRules:
+            - apiGroups: ["gateway.networking.k8s.io"]
+              resources: ["gateways", "httproutes"]
+              verbs: ["get", "list", "watch"]
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
