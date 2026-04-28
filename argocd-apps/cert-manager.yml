@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: oci://quay.io/jetstack/charts
+    repoURL: oci://ghcr.io/jetstack/charts
     chart: cert-manager
-    targetRevision: v1.14.*   # pick the version you want
+    targetRevision: v1.14.4   # pick the version you want
     helm:
       values: |
         crds:
