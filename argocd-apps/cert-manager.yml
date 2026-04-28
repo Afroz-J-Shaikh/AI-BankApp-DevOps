@@ -15,8 +15,9 @@ spec:
       values: |
         crds:
           enabled: true
-        extraArgs:
-          - --enable-gateway-api=true
+        controller:
+          extraArgs:
+            - --enable-gateway-api=true
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
