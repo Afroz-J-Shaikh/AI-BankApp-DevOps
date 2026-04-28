@@ -36,8 +36,8 @@ spec:
       port: 443
       hostname: 52.27.57.250.nip.io
       tls:
-      mode: Terminate
-      certificateRefs:
+        mode: Terminate
+        certificateRefs:
         - group: ""
           kind: Secret
           name: bankapp-tls
