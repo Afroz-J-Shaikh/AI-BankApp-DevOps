@@ -15,10 +15,12 @@ spec:
       values: |
         crds:
           enabled: true
-        config:
-          enableGatewayAPI: true
-          apiVersion: gateway.networking.k8s.io/v1
-          kind: GatewayConfiguration
+        extraArgs:
+          - --enable-gateway-api
+            #config:
+            #enableGatewayAPI: true
+            #apiVersion: gateway.networking.k8s.io/v1
+            #kind: GatewayConfiguration
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
