@@ -13,12 +13,14 @@ spec:
     targetRevision: v1.14.4   # pick the version you want
     helm:
       values: |
-        crds:
-          enabled: true
-          keep: true
+        installCRDs: true
         controller:
-          extraArgs:
-            - --enable-gateway-api=true
+          # Use the 'args' override if extraArgs is being ignored
+          args:
+            - --v=2
+            - --cluster-resource-namespace=$(POD_NAMESPACE)
+            - --leader-election-namespace=kube-system
+            - --enable-gateway-api
         rbac:
           extraRules:
             - apiGroups: ["gateway.networking.k8s.io"]
